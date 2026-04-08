@@ -1,8 +1,15 @@
 // Store all students in an array
 let students = [];
 
-document.getElementById("addBtn").addEventListener("click", addStudent);
-document.getElementById("clearBtn").addEventListener("click", clearResults);
+document.getElementById("addBtn").addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent form submission
+  addStudent();
+});
+
+document.getElementById("clearBtn").addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent form submission
+  clearResults();
+});
 
 function addStudent() {
   const name = document.getElementById("name").value.trim();
@@ -11,8 +18,15 @@ function addStudent() {
   const score3 = parseInt(document.getElementById("score3").value);
 
   // Input validation
-  if (!name || isNaN(score1) || isNaN(score2) || isNaN(score3) || score1 > 100 
-  || score2 > 100 || score3 > 100 ) {
+  if (
+    !name ||
+    isNaN(score1) ||
+    isNaN(score2) ||
+    isNaN(score3) ||
+    score1 > 100 ||
+    score2 > 100 ||
+    score3 > 100
+  ) {
     alert("Please fill in all fields correctly!");
     return;
   }
@@ -35,7 +49,7 @@ function addStudent() {
     scores: [score1, score2, score3],
     total,
     average,
-    grade
+    grade,
   };
 
   // Store student in array
