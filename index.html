@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Performance Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+  <h1>🎓 Student Performance Tracker</h1>
+  </header>
+
+  <main>
+    <section id="input-section">
+        <h2>Enter Student Scores</h2>
+        <form id="score-form">
+
+  <div class="form-container">
+    <input type="text" id="name" placeholder="Enter student name">
+    <input type="number" id="score1" placeholder="English score">
+    <input type="number" id="score2" placeholder="Maths score">
+    <input type="number" id="score3" placeholder="Computer score">
+    <button id="addBtn">Add Result</button>
+    <button id="clearBtn">Clear All Results</button>
+  </div>
+  
+  </form>
+  </section>
+
+  <hr>
+
+  <section id="results-section">
+  <h2>📊 Performance Results</h2>
+  <table id="results">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>English</th>
+            <th>Math</th>
+            <th>Computer</th>
+            <th>Total Score</th>
+            <th>Average Score</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody id="results-container">
+    </tbody>
+  </table>
+  <p id="empty-message">No results tracked yet. Add a student above!</p>
+  </section>
+  
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Performance Tracker</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
