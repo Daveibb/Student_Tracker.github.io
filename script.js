@@ -1,5 +1,5 @@
-// Store all students in an array
-let students = [];
+// Load students from localStorage if available
+let students = JSON.parse(localStorage.getItem("students")) || [];
 
 document.getElementById("addBtn").addEventListener("click", function(event) {
   event.preventDefault(); // Prevent form submission
@@ -55,8 +55,17 @@ function addStudent() {
   // Store student in array
   students.push(student);
 
+  // Save to localStorage
+  localStorage.setItem("students", JSON.stringify(students));
+
   // Display results dynamically
   displayResults();
+
+  // Reset input fields for cleaner UX
+  document.getElementById("name").value = "";
+  document.getElementById("score1").value = "";
+  document.getElementById("score2").value = "";
+  document.getElementById("score3").value = "";
 }
 
 function displayResults() {
@@ -81,5 +90,9 @@ function displayResults() {
 
 function clearResults() {
   students = [];
+  localStorage.removeItem("students"); // Clear saved data
   document.getElementById("results").innerHTML = "";
 }
+
+// Show saved results on page load
+window.addEventListener("load", displayResults);
